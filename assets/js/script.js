@@ -58,11 +58,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Contact form → WhatsApp ───────────────────────────────────
   document.getElementById('contactForm')?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const name    = document.getElementById('nama').value.trim();
-    const message = document.getElementById('pesan').value.trim();
-    if (name && message) {
+
+    const namaInput  = document.getElementById('nama');
+    const pesanInput = document.getElementById('pesan');
+    const namaError  = document.getElementById('nama-error');
+    const pesanError = document.getElementById('pesan-error');
+    const successMsg = document.getElementById('form-success');
+
+    const name    = namaInput.value.trim();
+    const message = pesanInput.value.trim();
+    let valid = true;
+
+    // Reset state
+    [namaInput, pesanInput].forEach((el) => el.classList.remove('error'));
+    namaError.textContent  = '';
+    pesanError.textContent = '';
+    successMsg?.classList.remove('visible');
+
+    if (!name) {
+      namaInput.classList.add('error');
+      namaError.textContent = 'Nama tidak boleh kosong.';
+      valid = false;
+    }
+
+    if (!message) {
+      pesanInput.classList.add('error');
+      pesanError.textContent = 'Pesan tidak boleh kosong.';
+      valid = false;
+    }
+
+    if (valid) {
       const text = encodeURIComponent(`Halo Irvan, saya ${name}.\n\n${message}`);
       window.open(`https://api.whatsapp.com/send?phone=628988493839&text=${text}`, '_blank');
+      successMsg?.classList.add('visible');
+      event.target.reset();
     }
   });
 });

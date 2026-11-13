@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#eeefe8"/>
+  <rect x="240" y="140" width="120" height="90" rx="8" fill="#d8dbd2"/>
+  <circle cx="270" cy="168" r="14" fill="#c8c8c0"/>
+  <polygon points="240,230 300,170 350,210 390,180 440,230" fill="#c8c8c0"/>
+  <text x="300" y="310" text-anchor="middle" font-family="Georgia,serif" font-size="13"
+        fill="#64706b" letter-spacing="2">CARTESIAN MACHINE</text>
+</svg>
