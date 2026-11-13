@@ -702,6 +702,13 @@ h2 {
   border: 1px solid var(--line);
 }
 
+.project-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
 .project-tag {
   padding: 7px 10px;
   border: 1px solid var(--line);
@@ -710,6 +717,119 @@ h2 {
   font: .6rem 'DM Mono', monospace;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.project-tag--highlight {
+  background: var(--lime-dark);
+  border-color: var(--lime-dark);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Detail project card */
+.project-card--detail {
+  grid-template-columns: 175px 1fr;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.project-header h2 {
+  margin-bottom: 8px;
+}
+
+.project-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.project-period {
+  margin: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  color: var(--muted);
+  letter-spacing: .05em;
+}
+
+.project-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.8;
+}
+
+.project-desc strong {
+  color: var(--ink);
+}
+
+.project-contributions {
+  padding: 18px 20px;
+  background: color-mix(in srgb, var(--line) 30%, transparent);
+  border-radius: 8px;
+  border-left: 3px solid var(--lime-dark);
+}
+
+.project-contributions-title {
+  margin: 0 0 10px;
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink);
+}
+
+.project-contributions ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-contributions li {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.project-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  background: color-mix(in srgb, var(--lime-dark) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lime-dark) 35%, transparent);
+  border-radius: 8px;
+}
+
+.project-result span {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.project-result p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.7;
+}
+
+.project-result strong {
+  color: var(--ink);
 }
 
 /* Contact page */
@@ -943,6 +1063,24 @@ textarea {
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .project-card--detail {
+    grid-template-columns: 1fr;
+  }
+
+  .project-header {
+    flex-direction: column;
+  }
+
+  .project-right {
+    align-items: flex-start;
+  }
+
+  .project-tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .page-hero {
