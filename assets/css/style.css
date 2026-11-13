@@ -912,18 +912,8 @@ h2 {
   color: var(--ink);
 }
 
-.project-cad-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.project-cad-grid figure {
-  margin: 0;
-}
-
 .project-cad-main {
-  grid-column: 1 / -1;
+  margin: 0;
 }
 
 .project-cad img {
@@ -1337,10 +1327,6 @@ textarea {
 
   .project-gallery--pair,
   .about-details {
-    grid-template-columns: 1fr;
-  }
-
-  .project-cad-grid {
     grid-template-columns: 1fr;
   }
 
