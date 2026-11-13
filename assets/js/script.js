@@ -94,4 +94,64 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target.reset();
     }
   });
+
+  // ── Image lightbox ───────────────────────────────────────────
+  const zoomables = document.querySelectorAll('.project-gallery img, .project-cad img');
+
+  if (zoomables.length) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Pratinjau gambar');
+    lightbox.innerHTML = `
+      <button class="lightbox-close" type="button" aria-label="Tutup pratinjau">✕</button>
+      <img alt="">
+      <p class="lightbox-caption"></p>
+    `;
+    document.body.appendChild(lightbox);
+
+    const boxImg = lightbox.querySelector('img');
+    const boxCap = lightbox.querySelector('.lightbox-caption');
+    const boxClose = lightbox.querySelector('.lightbox-close');
+    let lastFocused = null;
+
+    const openLightbox = (img) => {
+      lastFocused = document.activeElement;
+      boxImg.src = img.currentSrc || img.src;
+      boxImg.alt = img.alt || '';
+      const figure = img.closest('figure');
+      boxCap.textContent = figure?.querySelector('figcaption')?.textContent || '';
+      lightbox.classList.add('open');
+      document.body.classList.add('lightbox-open');
+      boxClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+      boxImg.removeAttribute('src');
+      lastFocused?.focus();
+    };
+
+    zoomables.forEach((img) => {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.addEventListener('click', () => openLightbox(img));
+      img.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(img);
+        }
+      });
+    });
+
+    boxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  }
 });

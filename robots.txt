@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://irvanchaniaganvan.github.io/web-pribadi/sitemap.xml
