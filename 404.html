@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121a17" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="noindex">
   <meta name="description" content="Halaman tidak ditemukan — Irvan Chaniagan Portfolio.">
   <title>404 — Halaman Tidak Ditemukan</title>
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -43,10 +47,11 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Navigasi utama">
       <a class="brand" href="index.html">IC<span>.</span></a>
-      <div class="nav-menu" style="margin:auto">
+      <div class="nav-menu">
         <a class="nav-link" href="index.html">Beranda</a>
         <a class="nav-link" href="pages/about.html">Tentang</a>
         <a class="nav-link" href="pages/portofolio.html">Proyek</a>
@@ -58,7 +63,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <div class="not-found">
       <p class="not-found-code">404</p>
       <h1>Halaman tidak ditemukan.</h1>
