@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Image lightbox ───────────────────────────────────────────
-  const zoomables = document.querySelectorAll('.project-gallery img, .project-cad img');
+  const zoomables = document.querySelectorAll('.project-gallery img');
 
   if (zoomables.length) {
     const lightbox = document.createElement('div');
